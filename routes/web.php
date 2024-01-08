@@ -17,7 +17,13 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('/bind', 'SiteController@bind');
+Route::get('/bind', 'Web\SiteController@request');
+Route::get('/response', 'Web\SiteController@response')->name('response');
+Route::get('/response/redirect/{reason}', 'Web\SiteController@responseRedirect')->name('response.redirect');
 // Route::get('/bind', 'App\Http\Controllers\SiteController@bind');
+
+Route::get('/info', function(){
+    dd("informacje");
+});
 
 
