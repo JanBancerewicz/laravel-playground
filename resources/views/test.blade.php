@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{app()->getLocale()}}">
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +11,11 @@
        
     <!-- Bootstrap Bundle with Popper -->
     <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    
-    <title>@yield('title')</title>
-  </head>
-<body>
-    <main>
-        @yield('content')
-    </main>
-</body>
 
+    <title>Hello, world!</title>
+    <button class="btn btn-primary">Bootstrap btn</button>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+  </body>
 </html>

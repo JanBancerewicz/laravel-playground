@@ -49,4 +49,8 @@ class SiteController extends Controller
     public function form(){
         return view('form');
     }
+
+    public function test(){
+        return view('test');
+    }
 }

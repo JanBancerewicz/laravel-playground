@@ -18,6 +18,7 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('/test', 'Web\SiteController@test');
 Route::get('/form', 'Web\SiteController@form');
 
 Route::post('/form', function(Request $request){
@@ -35,6 +36,10 @@ Route::get('/info', function(){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
