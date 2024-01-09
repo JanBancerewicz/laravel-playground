@@ -39,4 +39,14 @@ class SiteController extends Controller
         // return redirect()->route('response.redirect');
         return "response redirect $reason";
     }
+
+    public function view(){
+        return view('simple-view', [
+            'name' => 'Jan',
+            'number' => mt_rand(1,100)
+        ]);
+    }
+    public function form(){
+        return view('form');
+    }
 }

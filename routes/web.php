@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,14 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('/form', 'Web\SiteController@form');
+
+Route::post('/form', function(Request $request){
+    return $request->input();
+});
+
 Route::get('/bind', 'Web\SiteController@request');
+Route::get('/view', 'Web\SiteController@view');
 Route::get('/response', 'Web\SiteController@response')->name('response');
 Route::get('/response/redirect/{reason}', 'Web\SiteController@responseRedirect')->name('response.redirect');
 // Route::get('/bind', 'App\Http\Controllers\SiteController@bind');
@@ -27,3 +35,7 @@ Route::get('/info', function(){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
