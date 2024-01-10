@@ -16,30 +16,45 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
     return view('welcome');
-});
+})->name('index');
 
-Route::get('/test', 'Web\SiteController@test');
-Route::get('/form', 'Web\SiteController@form');
+
+Route::get('/test', 'Web\SiteController@test')->name('test');
+
+Route::post('/test', 'Web\SiteController@store')->name('test.store');
+
+// Route::post('/test', function(Request $request){
+//     return $request->all();
+// })->name('test.store');
+
+
+Route::get('/form', 'Web\SiteController@form')->name('form');
 
 Route::post('/form', function(Request $request){
     return $request->input();
-});
+})->name('form');
 
-Route::get('/bind', 'Web\SiteController@request');
-Route::get('/view', 'Web\SiteController@view');
+Route::get('/bind', 'Web\SiteController@request')->name('bind');
+Route::get('/view', 'Web\SiteController@view')->name('view');
 Route::get('/response', 'Web\SiteController@response')->name('response');
 Route::get('/response/redirect/{reason}', 'Web\SiteController@responseRedirect')->name('response.redirect');
 // Route::get('/bind', 'App\Http\Controllers\SiteController@bind');
 
-Route::get('/info', function(){
-    dd("informacje");
+Route::get('/session',function(Request $request){
+
+    if(!session()->has('username'))
+    {
+        session(['username'=> 'new_user']);
+    }else{
+        session(['username'=> 'old_user']);
+    }
+    // session()->flush();
+
+    return session()->all();
 });
 
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

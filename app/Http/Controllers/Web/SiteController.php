@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 // use App\Services\PayMe;
 use App\Contracts\PaymentGateway;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FormAuthRequest;
 use Illuminate\Http\Request;
 
 
@@ -52,5 +53,14 @@ class SiteController extends Controller
 
     public function test(){
         return view('test');
+    }
+
+    public function store(FormAuthRequest $request){
+        
+        return $request->validated();
+    }
+
+    public function session(Request $request){
+        return view('session', $request);
     }
 }

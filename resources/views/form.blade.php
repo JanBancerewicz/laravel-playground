@@ -5,19 +5,23 @@
 @section('content')
 <h1>Fill out the form</h1>
 
-<form action="" method="post">
+<form action="{{route('form')}}" method="post">
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+        <label for="user" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="user">
         
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
     </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
     @csrf
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
 </form>
+
+<a href="{{route('index')}}">Main page</a><br/>
+<a href="{{url()->previous()}}">Previous page</a>
+
 
 @endsection
