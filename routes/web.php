@@ -20,6 +20,12 @@ Route::get('/', function(){
 
 
 Route::get('/test', 'Web\SiteController@test')->name('test');
+Route::get('/db-test2', function(){
+    
+    return dd(DB::connection()->getPdo());
+});
+
+Route::get('/db-test', 'Web\SiteController@getall');
 
 Route::post('/test', 'Web\SiteController@store')->name('test.store');
 
