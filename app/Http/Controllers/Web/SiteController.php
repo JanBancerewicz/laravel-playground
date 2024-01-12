@@ -7,7 +7,7 @@ use App\Contracts\PaymentGateway;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormAuthRequest;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Article;
 
 
 class SiteController extends Controller
@@ -66,7 +66,7 @@ class SiteController extends Controller
     }
 
     public function getall(){
-        $allActiveUsers = User::all();
-        dd( $allActiveUsers);
+        $allArticles = Article::all();
+        dd( $allArticles);
     }
 }
