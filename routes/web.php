@@ -40,10 +40,14 @@ Route::post('/form', function(Request $request){
     return $request->input();
 })->name('form');
 
-Route::get('/bind', 'Web\SiteController@request')->name('bind');
-Route::get('/view', 'Web\SiteController@view')->name('view');
-Route::get('/response', 'Web\SiteController@response')->name('response');
-Route::get('/response/redirect/{reason}', 'Web\SiteController@responseRedirect')->name('response.redirect');
+Route::namespace('Web')->group(function(){
+    
+    Route::get('/bind', 'SiteController@request')->name('bind');
+    Route::get('/view', 'SiteController@view')->name('view');
+    Route::get('/response', 'SiteController@response')->name('response');
+    Route::get('/response/redirect/{reason}', 'SiteController@responseRedirect')->name('response.redirect');
+});
+
 // Route::get('/bind', 'App\Http\Controllers\SiteController@bind');
 
 Route::get('/session',function(Request $request){
